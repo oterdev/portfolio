@@ -1,13 +1,11 @@
 <template>
-  <!-- <main class="container mx-auto max-w-screen-md"> -->
-  <!-- <div class="flex gap-4 ">
-    <NuxtLink to="/">home</NuxtLink>
-    <NuxtLink to="/blog">blog</NuxtLink>
-    <NuxtLink to="/link">link</NuxtLink>
-  </div> -->
-
-  <div>
-    <slot/>
-  </div>
-  <!-- </main> -->
+  <section class="flex min-h-screen flex-col">
+    <div class="text-gray-500 dark:text-gray-300">
+      <Header/>
+      <main class="flex-grow">
+        <slot/>
+      </main>
+      <Footer/>
+    </div>
+  </section>
 </template>

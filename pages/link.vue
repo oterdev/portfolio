@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  layout: 'none'
+})
 useHead({
   title: 'Ahmad Sarian',
 })
@@ -44,7 +47,7 @@ const socials = [
   {
     name: "github",
     icon: "iconoir:github",
-    url: "https://github.com/sakirsyarian",
+    url: "https://github.com/oterdev",
   },
   {
     name: "email",
@@ -65,7 +68,7 @@ const socials = [
 
       <header class="mb-8 text-center">
         <div class="mb-4 flex justify-center">
-          <NuxtImg src="/profile.png" sizes="110px" class="rounded-full object-cover"/>
+          <img src="/profile.png" alt="Profile" class="rounded-full object-cover w-28 h-28"/>
         </div>
         <h1 class="mb-2 text-2xl font-bold">Ahmad Sarian</h1>
         <p class="mb-4">
@@ -97,7 +100,7 @@ const socials = [
       <footer class="mt-8 text-center">
         <p class="text-sm">
           © {{ new Date().getFullYear() }} Sarian. Created with ❤️ by
-          <NuxtLink to="https://github.com/sakirsyarian" target="_blank" class="font-semibold">
+          <NuxtLink to="https://www.threads.net/@sakirsyarian" target="_blank" class="font-semibold">
             sakirsyarian
           </NuxtLink>
         </p>
