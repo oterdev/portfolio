@@ -1,6 +1,6 @@
 <template>
-  <section class="flex min-h-screen flex-col">
-    <div class="text-gray-500 dark:text-gray-300">
+  <section class="text-gray-500 dark:text-gray-300">
+    <div class="min-h-screen flex flex-col">
       <Header/>
       <main class="flex-grow">
         <slot/>

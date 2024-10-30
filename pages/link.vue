@@ -9,27 +9,27 @@ useHead({
 const links = [
   {
     title: "JavaScript for Beginners",
-    // icon: Book,
+    icon: "iconoir:book",
     url: "https://jagojs.my.id/",
   },
   {
     title: "Follow me on Threads",
-    // icon: AtSign,
+    icon: "iconoir:threads",
     url: "https://threads.net/@sakirsyarian",
   },
   {
     title: "My Personal Website",
-    // icon: Globe,
+    icon: "iconoir:globe",
     url: "/",
   },
   {
     title: "Subscribe to my YouTube",
-    // icon: Youtube,
+    icon: "iconoir:youtube",
     url: "https://youtube.com/@oterdev",
   },
   {
     title: "Buy me a Coffee",
-    // icon: Coffee,
+    icon: "iconoir:coffee-cup",
     url: "https://saweria.co/oterdev",
   },
 ];
@@ -63,49 +63,52 @@ const socials = [
 </script>
 
 <template>
-  <section class="flex min-h-screen items-center justify-center text-gray-500 dark:text-gray-300">
-    <div class="container mx-auto max-w-md px-4 py-8">
+  <section class="text-gray-500 dark:text-gray-300">
+    <div class="container mx-auto max-w-md px-4">
+      <div class="min-h-screen flex flex-col">
 
-      <header class="mb-8 text-center">
-        <div class="mb-4 flex justify-center">
-          <img src="/profile.png" alt="Profile" class="rounded-full object-cover w-28 h-28"/>
-        </div>
-        <h1 class="mb-2 text-2xl font-bold">Ahmad Sarian</h1>
-        <p class="mb-4">
-          Hi there! I like sharing simple tips and tricks with JavaScript to
-          make your coding life easier.
-        </p>
-        <div class="flex items-center justify-center gap-4">
-          <div v-for="social in socials" :key="social.name">
-            <NuxtLink :to="social.url" target="_blank">
-              <Icon :name="social.icon" size="25"/>
-            </NuxtLink>
+        <header class="py-4 text-center">
+          <div class="mb-4 flex justify-center">
+            <img src="/profile.png" alt="Profile" class="rounded-full object-cover w-28 h-28"/>
           </div>
-        </div>
-      </header>
-
-      <main class="flex flex-col gap-4">
-        <div v-for="link in links" :key="link.title">
-          <NuxtLink :to="link.url" target="_blank"
-                    class="block rounded-lg border p-4 transition-colors duration-200 hover:shadow-lg">
-            <div class="flex items-center gap-3">
-              <!-- <link.icon class="h-6 w-6" /> -->
-              <span class="font-medium">{{ link.title }}</span>
+          <h1 class="mb-2 text-2xl font-bold">Ahmad Sarian</h1>
+          <p class="mb-4">
+            Hi there! I like sharing simple tips and tricks with JavaScript to
+            make your coding life easier.
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <div v-for="social in socials" :key="social.name">
+              <NuxtLink :to="social.url" target="_blank">
+                <Icon :name="social.icon" size="24"/>
+              </NuxtLink>
             </div>
-          </NuxtLink>
-        </div>
+          </div>
+        </header>
 
-      </main>
+        <main class="py-4 flex-grow">
+          <div class="flex flex-col gap-4">
+            <div v-for="link in links" :key="link.title">
+              <NuxtLink :to="link.url" target="_blank"
+                        class="block rounded-lg border p-4 transition-colors duration-200 hover:shadow-lg">
+                <div class="flex items-center gap-3">
+                  <Icon :name="link.icon" size="26"/>
+                  <span class="font-medium">{{ link.title }}</span>
+                </div>
+              </NuxtLink>
+            </div>
+          </div>
+        </main>
 
-      <footer class="mt-8 text-center">
-        <p class="text-sm">
-          © {{ new Date().getFullYear() }} Sarian. Created with ❤️ by
-          <NuxtLink to="https://www.threads.net/@sakirsyarian" target="_blank" class="font-semibold">
-            sakirsyarian
-          </NuxtLink>
-        </p>
-      </footer>
+        <footer class="py-4 text-center">
+          <p class="dark:text-gray-300">
+            © {{ new Date().getFullYear() }} Sarian. Created with ❤️ by
+            <NuxtLink to="https://www.threads.net/@sakirsyarian" target="_blank" class="font-semibold">
+              sakirsyarian
+            </NuxtLink>
+          </p>
+        </footer>
 
+      </div>
     </div>
   </section>
 </template>

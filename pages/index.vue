@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'Coming Soon',
+  title: 'Ahmad Sarian',
 })
 
 const posts = [
@@ -18,6 +18,14 @@ const socials = [
     href: "https://www.instagram.com/sakirsyarian/",
   },
 ];
+
+const formatDate = (date: Date | string) => {
+  return new Date(date).toLocaleDateString("id-ID", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  })
+}
 </script>
 
 <template>
@@ -40,7 +48,7 @@ const socials = [
     </div>
   </section>
 
-  <section class="10">
+  <section class="py-10">
     <div class="container mx-auto max-w-screen-md px-4">
       <div class="flex items-center justify-between">
         <h2 class="mb-6 text-xl font-semibold">Latest posts</h2>
@@ -49,23 +57,18 @@ const socials = [
         </NuxtLink>
       </div>
       <div class="grid grid-cols-1 gap-6">
-        <div v-for="post in posts" :key="post.id"
-             class="cursor-pointer rounded-lg border p-6 transition-all hover:shadow-lg">
-          <NuxtLink to="/blog">
-            <h3 class="mb-2 text-lg font-medium">{{ post.title }}</h3>
-            <div class="mb-4 flex items-center gap-4 text-gray-400">
-              <div class="flex items-center text-sm">
-                <!--              <Calendar class="mr-1 h-4 w-4" />-->
-                {{ post.date }}
+
+        <ContentList path="/blog" v-slot="{ list }">
+          <article v-for="post in list" :key="post._path" class="rounded-lg border transition-shadow hover:shadow-lg">
+            <NuxtLink :to="post._path">
+              <div class="p-6">
+                <h3 class="mb-2 text-lg font-medium">{{ post.title }}</h3>
+                <p>{{ post.description }}</p>
               </div>
-              <div class="flex items-center text-sm">
-                <!--              <Eye class="mr-1 h-4 w-4" />-->
-                {{ post.views }} views
-              </div>
-            </div>
-            <p>Short description of the blog post...</p>
-          </NuxtLink>
-        </div>
+            </NuxtLink>
+          </article>
+        </ContentList>
+
       </div>
     </div>
   </section>
@@ -87,7 +90,7 @@ const socials = [
           </li>
           <li class="line-clamp-1">
             <NuxtLink to="mailto:sariandeveloper@gmail.com" class="text-link">
-              sariandeveloper@gmail.com
+              gmail
             </NuxtLink>
           </li>
         </ul>
